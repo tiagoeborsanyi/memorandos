@@ -1,0 +1,28 @@
+{
+  "name": "memorandos",
+  "description": "Novo sistema para controle de equipamentos de informatica do TRT15",
+  "main": "server.js",
+  "authors": [
+    "Tiago Emerick Borsanyi"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "elastsearch",
+    "angular"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5"
+  }
+}
