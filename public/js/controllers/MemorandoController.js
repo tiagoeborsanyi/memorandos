@@ -68,55 +68,6 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 		$scope.memorando.tabela.splice(i, 1);
 	};
 
-	//funcção para fomatar a data
-	function formataData(recebeData) {
-		var dia = recebeData.slice(8, 10);
-		var ano = recebeData.slice(0, 4);
-		var mes = recebeData.slice(5, 7);
-		var m;
-
-		switch(parseInt(mes)) {
-			case 01:
-				m = "Janeiro";
-				break;
-			case 02:
-				m = "Fevereiro";
-				break;
-			case 03:
-				m = "Março";
-				break;
-			case 04:
-				m = "Abril";
-				break;
-			case 05:
-				m = "Maio";
-				break;
-			case 06:
-				m = "Junho";
-				break;
-			case 07:
-				m = "Julho";
-				break;
-			case 08:
-				m = "Agosto";
-				break;
-			case 09:
-				m = "Setembro";
-				break;
-			case 10:
-				m = "Outubro";
-				break;
-			case 11:
-				m = "Novembro";
-				break;
-			case 12:
-				m = "Dezembro";
-				break;
-			default:
-				m = "TESTE";
-		}
-		return dia + " " + m + " " + ano;
-	};
 
 	//Função para quando clicar no botão de editar ir para a pagina de edição do memorando
 	if($routeParams.id){
@@ -124,7 +75,7 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 		function(memorando){
 			$scope.memorando = memorando;
 			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: $scope.memorando.lotacaodestino}];
-			$scope.diamesano = formataData(memorando.data);
+			//$scope.diamesano = formataData(memorando.data);
 		},
 		function(erro){
 			console.log(erro);
