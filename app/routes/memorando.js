@@ -1,4 +1,4 @@
-function verificaAutenticacao(req, res, next){
+function verifica(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	}else{
