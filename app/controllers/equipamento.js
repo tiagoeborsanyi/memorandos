@@ -8,7 +8,7 @@ module.exports = function(app){
 	controller.listaEquipamentos = function(req, res){
 					var page = req._parsedOriginalUrl.query;
 					console.log(page);
-					Equipamento.find({}).limit(40).skip(page*40).populate('usuario').exec()
+					Equipamento.find().limit(10).skip(page*10).populate('usuario').exec()
 					.then(
 						function(equipamentos){
 							res.json(equipamentos);

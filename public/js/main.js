@@ -57,7 +57,7 @@ angular.module('memorandos', ['ngRoute', 'ngResource', 'tagged.directives.infini
 
 	$routeProvider.when('/relatorios/equipamento/', {
 		templateUrl: '/partials/VisualizaEquipamento.html',
-		controller: 'EquipamentoController'
+		controller: 'EquipamentoControllerInfinite'
 	});
 
 	$routeProvider.when('/edita/equipamento/:equipamentoId', {
