@@ -25,9 +25,7 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 	function selecionaOperacao(){
 
 		$http.get('/configuracao/operacao').success(function(operacaolista){
-
 			$scope.operacoes = operacaolista;
-
 		},
 		function(erro){
 			console.log(erro);
@@ -38,9 +36,7 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 	function selecionaSituacao(){
 
 		$http.get('/configuracao/situacao').success(function(situacaolista){
-
 			$scope.situacoes = situacaolista;
-
 		},
 		function(erro){
 			console.log(erro);
@@ -52,17 +48,15 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 	selecionaOperacao();
 
 	$scope.adicionaItem = function(a) {
-
 		if($scope.memorando.tabela === undefined || $scope.memorando.tabela === null){
 			$scope.memorando.tabela = [];
 			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: 'Manutenção'}, {teste: $("#provider-json-2").val()}];
 			console.log($("#provider-json-2").val());
 		}
-
 		console.log($scope.memorando.tabela);
-
 		$scope.memorando.tabela.push({a});
 	};
+
 
 	$scope.removeItem = function(i) {
 		$scope.memorando.tabela.splice(i, 1);
@@ -116,20 +110,9 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 
 	var opt;
 	$http.get('/inicio/lotacoes').success(function(lotacao){
-				opt = {
-				url: '/inicio/lotacoes',
-
-				getValue: "teste",
-
-				list: {
-					match: {
-						enabled: true
-					}
-				}
-			};
-
-			$("#provider-json-1").easyAutocomplete(opt);
-			$("#provider-json-2").easyAutocomplete(opt);
+			console.log(lotacao);
+			$("#provider-json-1").easyAutocomplete(lotacao);
+			$("#provider-json-2").easyAutocomplete(lotacao);
 	},
 	function(erro){
 		console.log(erro);

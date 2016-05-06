@@ -20,7 +20,7 @@
                     Lotação de Saída:
                   </label>
                   <div class="col-md-10">
-                    <input type="text" class="form-control" placeholder="Lotação de Saída">
+                    <input type="text" class="form-control" placeholder="Lotação de Saída" id="provider-json-1" required ng-model="memorando.lotacaosaida">
                   </div>
                 </div>
               </div>
@@ -35,7 +35,7 @@
                     Lotação de Destino:
                   </label>
                   <div class="col-md-10">
-                    <input type="text" class="form-control" placeholder="Lotação de Destino">
+                    <input type="text" class="form-control" placeholder="Lotação de Destino" id="provider-json-2" required ng-model="memorando.lotacaodestino">
                   </div>
                 </div>
               </div>
@@ -50,7 +50,7 @@
                     Nº Memorando:
                   </label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" placeholder="Nº Memorando">
+                    <input type="text" class="form-control" placeholder="Nº Memorando" required ng-model="memorando.numeromemorando">
                   </div>
                 </div>
               </div>
@@ -60,7 +60,13 @@
                     Assunto:
                   </label>
                   <div class="col-md-10">
-                    <input type="text" class="form-control" placeholder="Assunto">
+                    <select
+                        class="form-control"
+                        id="valoroperacao"
+                        ng-model="memorando.assunto"
+                        ng-options="memorandotabela.operacao as memorandotabela.operacao for memorandotabela in operacoes">
+        								        <option value="">--Escolha uma Operação--</option>
+        						</select>
                   </div>
                 </div>
               </div>
