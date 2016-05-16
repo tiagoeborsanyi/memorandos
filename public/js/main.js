@@ -27,8 +27,8 @@ angular.module('memorandos', ['ngRoute', 'ngResource', 'tagged.directives.infini
 		controller: 'MemorandoController'
 	});
 
-	$routeProvider.when('/search', {
-		templateUrl: '/partials/visualizaMemorando.html',
+	$routeProvider.when('/searchmemorando', {
+		templateUrl: '/partials/search-memorando.html',
 		controller: 'MemorandoController'
 	})
 

@@ -31,7 +31,7 @@ module.exports = function(app){
 
 	//Rota para elasticSearch de memorandos
 	app.route('/search')
-			.get(controller.elasticMemorando);
-			//.post(controller.elasticMemorandoUrl);
+			.get(controller.elasticMemorando)
+			.post(controller.elasticMemorandoUrl);
 
 };

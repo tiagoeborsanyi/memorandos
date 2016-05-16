@@ -2,14 +2,14 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 
 	$scope.filtro = '';
 
-console.log('search');
-		http.get('/search?q='+$scope.searchmemorando).success(function(memorandos) {
-			console.log('search '+memorandos);
-			$scope.memorandos = memorandos;
-		},
-		function (err) {
-			console.log(err);
-		});
+			$http.get('/search?q=192').success(function(memorandos) {
+				console.log(memorandos);
+				$scope.memorandos = memorandos;
+			},
+			function (err) {
+				console.log(err);
+			});
+
 
 
 	/*
