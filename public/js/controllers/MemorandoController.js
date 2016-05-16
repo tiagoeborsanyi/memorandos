@@ -18,12 +18,10 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 					console.log(id);
 				});
 		}
-
 	};
 
 
 	function selecionaOperacao(){
-
 		$http.get('/configuracao/operacao').success(function(operacaolista){
 			$scope.operacoes = operacaolista;
 		},
@@ -34,7 +32,6 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 	};
 
 	function selecionaSituacao(){
-
 		$http.get('/configuracao/situacao').success(function(situacaolista){
 			$scope.situacoes = situacaolista;
 		},
