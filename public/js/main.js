@@ -27,6 +27,11 @@ angular.module('memorandos', ['ngRoute', 'ngResource', 'tagged.directives.infini
 		controller: 'MemorandoController'
 	});
 
+	$routeProvider.when('/search', {
+		templateUrl: '/partials/visualizaMemorando.html',
+		controller: 'MemorandoController'
+	})
+
 	/*
 		ROTAS PARA OS OBJETOS USUARIOS
 	*/

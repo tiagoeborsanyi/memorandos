@@ -6,6 +6,49 @@ module.exports = function(app){
 
 	var controller = {};
 
+	Memorando.createMapping(function (err, mapping) {
+  if (err) {
+    console.log('error creating mapping');
+  } else {
+    console.log('Mapping created');
+    console.log(mapping);
+  }
+});
+
+var stream = Memorando.synchronize();
+var count = 0;
+
+stream.on('data', function () {
+  count++;
+});
+
+stream.on('close', function () {
+  console.log('Indexed '+count+' documents');
+});
+
+stream.on('error', function (err) {
+  console.log(err);
+});
+
+	controller.elasticMemorandoUrl = function (req, res) {
+		res.redirect('/search?q='+req.body.q);
+	}
+
+	controller.elasticMemorando = function (req, res) {
+		if (req.query.q) {
+			Memorando.search({
+				query_string: { query: req.query.q}
+			}, function(err, results) {
+				results:
+				if (err) return next(err);
+				var data = results.hits.hits.map(function(hit) {
+					return hit;
+				});
+				res.json(data);
+			});
+		}
+	};
+
 
 	controller.listaMemorandos = function(req, res){
 
@@ -21,6 +64,7 @@ module.exports = function(app){
 						res.status(500).json(erro);
 					});
 	};
+
 
 	controller.listaLotacoes = function(req, res){
 

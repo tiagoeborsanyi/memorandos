@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var mongoosastic = require('mongoosastic');
 
 module.exports = function(){
 
@@ -21,7 +22,7 @@ module.exports = function(){
 			required: true
 		},
 		tabela: [],
-		
+
 		observacao: {
 			type: String
 		},
@@ -33,7 +34,12 @@ module.exports = function(){
 			type: Date,
 			default: Date
 		}
+	});
 
+	schema.plugin(mongoosastic, {
+		hosts: [
+			'localhost:9200'
+		]
 	});
 
 	return mongoose.model('Memorando', schema);

@@ -2,6 +2,16 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 
 	$scope.filtro = '';
 
+console.log('search');
+		http.get('/search?q='+$scope.searchmemorando).success(function(memorandos) {
+			console.log('search '+memorandos);
+			$scope.memorandos = memorandos;
+		},
+		function (err) {
+			console.log(err);
+		});
+
+
 	/*
 		Estamos buscando os dados do servidor
 		passando a rota via get de qual controller queremos do express
