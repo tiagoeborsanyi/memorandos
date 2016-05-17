@@ -44,7 +44,8 @@ stream.on('error', function (err) {
 				var data = results.hits.hits.map(function(hit) {
 					return hit;
 				});
-				res.json(data);
+				console.log(data);
+				res.render('search-memorandos', {data: data});
 			});
 		}
 	};

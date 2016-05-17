@@ -37,7 +37,7 @@
             </div>
 
             <!--logo start-->
-            <a href="#" class="logo">Sol <span class="lite">Cartic</span></a>
+            <a href="/#" class="logo">Sol <span class="lite">Cartic</span></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -99,9 +99,9 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="#/memorando">Memorandos</a></li>
-                          <li><a class="" href="#/cadastra/equipamento">Equipamentos</a></li>
-			                    <li><a class="" href="#/cadastra/usuario">Usuário</a></li>
+                          <li><a class="" href="/#/memorando">Memorandos</a></li>
+                          <li><a class="" href="/#/cadastra/equipamento">Equipamentos</a></li>
+			                    <li><a class="" href="/#/cadastra/usuario">Usuário</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -111,8 +111,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="#/inicio">Memorandos</a></li>
-                          <li><a class="" href="#/relatorios/equipamento">Equipamentos</a></li>
+                          <li><a class="" href="/#/inicio">Memorandos</a></li>
+                          <li><a class="" href="/#/relatorios/equipamento">Equipamentos</a></li>
                           <li><a class="" href="#">Usuário</a></li>
                       </ul>
                   </li>
@@ -139,7 +139,106 @@
 
       <!--main content start-->
       <section id="main-content">
-          <div ng-view></div>
+        <section class="wrapper">
+
+          <!-- Titulo da pagina -->
+
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="page-header"><i class="fa"></i> Memorandos</h3>
+            </div>
+          </div>
+
+          <% for(var i = 0; i < data.length; i++) { %>
+          <!-- conteudo da pagina -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="info-box blue-bg">
+
+                <div class="row">
+                  <div class="col-md-11">
+                    <label for="">Data: </label>
+                    <%= data[i]._source.data %>
+                  </div>
+                  <div class="col-md-1">
+                    <a href="/#/memorando/<%= data[i]._id %>"><span class="icon_pencil" style="margin-right: 8px;"></span></a>
+                  </div>
+                </div>
+
+                <br><br>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="">Lotação de Saída: </label>
+                    <%= data[i]._source.lotacaosaida %>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="">Lotação de Saída: </label>
+                    <%= data[i]._source.lotacaodestino %>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="">Nº Memorando: </label>
+                    <%= data[i]._source.numeromemorando %>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="">Assunto: </label>
+                    <%= data[i]._source.assunto %>
+                  </div>
+                </div>
+
+                <br><br>
+
+                <div class="row">
+                  <div class="col-md-12" style="text-align: center">
+                    Memorando Cartic
+                  </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th class="cor-head-tabela">Tombo</th>
+                          <th class="cor-head-tabela">Descrição</th>
+                          <th class="cor-head-tabela">Local</th>
+                          <th class="cor-head-tabela">Situação</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% for(var k = 0; k < data[i]._source.tabela.length; k++) { %>
+                        <tr>
+                          <td><%= data[i]._source.tabela[k].tombo %></td>
+                          <td><%= data[i]._source.tabela[k].descricao %></td>
+                          <td><%= data[i]._source.tabela[k].local %></td>
+                          <td><%= data[i]._source.tabela[k].situacao %></td>
+                        </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="">Observação</label>
+                    <%= data[i]._source.observacao %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <% } %>
+
+        </section><!-- fim da class wrapper -->
+
       </section><!-- fim do id main-content -->
 
 
