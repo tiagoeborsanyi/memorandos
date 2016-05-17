@@ -2,16 +2,6 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 
 	$scope.filtro = '';
 
-			$http.get('/search?q=192').success(function(memorandos) {
-				console.log(memorandos);
-				$scope.memorandos = memorandos;
-			},
-			function (err) {
-				console.log(err);
-			});
-
-
-
 	/*
 		Estamos buscando os dados do servidor
 		passando a rota via get de qual controller queremos do express
@@ -117,9 +107,19 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 
 	var opt;
 	$http.get('/inicio/lotacoes').success(function(lotacao){
-			console.log(lotacao);
-			$("#provider-json-1").easyAutocomplete(lotacao);
-			$("#provider-json-2").easyAutocomplete(lotacao);
+			opt = {
+				url: '/inicio/lotacoes',
+
+				getValue: "teste",
+
+				list: {
+					match: {
+						enabled: true
+					}
+				}
+			};
+			$("#provider-json-1").easyAutocomplete(opt);
+			$("#provider-json-2").easyAutocomplete(opt);
 	},
 	function(erro){
 		console.log(erro);
