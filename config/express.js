@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 //ativa a parte de login
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('express-flash');
 var passport = require('passport');
 
 var load = require('express-load');
@@ -29,6 +30,7 @@ module.exports = function(){
 		resave: true,
 		saveUninitialized: true
 	}));
+	app.use(flash());
 	app.use(passport.initialize());
 	app.use(passport.session());
 

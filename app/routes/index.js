@@ -4,10 +4,17 @@ module.exports = function(app) {
 
 	//home page (login links)
 	app.get('/', function(req, res){
-		res.render('home');
+
+		res.render('index');
 	});
 
-/*	app.post('/login', passport.authenticate('local', {
+	/*app.post('/login', passport.authenticate('local', {failureRedirect: '/'}),
+		function(req, res){
+			console.log('nao esta renderizando');
+			res.redirect('/home');
+		});*/
+
+	app.post('/login', passport.authenticate('local', {
 		successRedirect : '/home',
 		failureRedirect : '/'
 	}));
@@ -29,7 +36,8 @@ module.exports = function(app) {
 			"usuario" : login,
 			"id" : id
 		});
-	}); */
+	});
+
 
 };
 
