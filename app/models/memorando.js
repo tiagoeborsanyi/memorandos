@@ -18,8 +18,7 @@ module.exports = function(){
 			required: true
 		},
 		assunto: {
-			type: String,
-			required: true
+			type: String
 		},
 		tabela: [],
 
@@ -37,10 +36,10 @@ module.exports = function(){
 	});
 
 	schema.plugin(mongoosastic, {
-		hosts: [
-			'localhost:9200'
-		]
-	});
+  hosts: [
+    'localhost:9200'
+  ]
+});
 
 	return mongoose.model('Memorando', schema);
 };

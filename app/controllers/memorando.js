@@ -9,6 +9,7 @@ module.exports = function(app){
 	Memorando.createMapping(function (err, mapping) {
   if (err) {
     console.log('error creating mapping');
+		console.log(err);
   } else {
     console.log('Mapping created');
     console.log(mapping);
