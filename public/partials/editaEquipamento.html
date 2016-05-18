@@ -7,6 +7,69 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <section class="panel">
+        <div class="panel-body">
+          <form class="form-horizontal" ng-submit="salva()">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Tombo:
+                  </label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Insira o tombo do equipamento" required ng-model="equipamento.tombo">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Descrição:
+                  </label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Positivo i5, AMD i5, Itautec i5, LG 19 Polegadas" required ng-model="equipamento.descricao">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Situação:
+                  </label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Pronto para entrega ou a definir" required ng-model="equipamento.situacao">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-lg-offset-5 col-md-6">
+                <button class="btn btn-primary" type="submit">Salvar</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+
 
 
 </section>

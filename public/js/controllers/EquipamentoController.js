@@ -5,4 +5,156 @@ angular.module('memorandos').controller('EquipamentoController', function($http,
 		$scope.equipamentos = data;
 	});
 
+
+if($routeParams.equipamentoId){
+	Equipamento.get({id: $routeParams.equipamentoId},
+	function(equipamento){
+		$scope.equipamento = equipamento;
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o equipamento');
+	});
+}else{
+	//cria um novo objeto equipamento
+	$scope.equipamento = new Equipamento();
+}
+
+$scope.salva = function(){
+
+	console.log("Equipamento "+ $scope.equipamento.tombo);
+
+	$scope.equipamento.$save()
+		.then(function(){
+			console.log("equipamento salvo "+ $scope.equipamento.tombo);
+			//limpa o form
+			$scope.equipamento = new Equipamento();
+		})
+		.catch(function(erro){
+			console.log("não foi possivel salvar o equipamento "+ erro);
+		});
+};
+
+$scope.situacao = function(){
+
+	console.log("dentro de function situacao "+$scope.eqpt.situacao.situacao);
+
+	$http.get('/equipamento/situacao').success(function(situacao){
+
+		var b = [];
+		for(var i = 0; i < situacao.length; i++){
+			var obj = situacao[i];
+			if($scope.eqpt.situacao.situacao == situacao[i]['situacao']){
+
+				b.push(situacao[i]);
+			}
+		}
+
+		$scope.ept = b;
+		console.log($scope.ept);
+
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o equipamento');
+	});
+};
+
+$scope.operacao = function(){
+
+	console.log("dentro de function operacao "+$scope.eqpto.operacao.operacao);
+
+	$http.get('/equipamento/operacao').success(function(operacao){
+
+		var b = [];
+		console.log("OPERACAO "+operacao[0]['assunto']);
+		for(var i = 0; i < operacao.length; i++){
+			//var obj = operacao[i];
+			if($scope.eqpto.operacao.operacao == operacao[i]['assunto']){
+
+				b.push(operacao[i]);
+			}
+		}
+
+		$scope.opr= b;
+		console.log($scope.opr);
+
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o equipamento');
+	});
+
+};
+
+//function para fazer relatório histórico da lotacao que esta na pagina de relatórios-equipamentos
+$scope.transacao = function(){
+
+	$http.get('/equipamento/transacao').success(function(transacao){
+
+		var b = [];
+
+		$scope.status = $scope.lot.lotacao.teste;
+
+		for(var i = 0; i < transacao.length; i++){
+
+			if(($scope.lot.lotacao.teste == transacao[i]['lotacaosaida']) || ($scope.lot.lotacao.teste == transacao[i]['lotacaodestino'])){
+
+				b.push(transacao[i]);
+			}
+		}
+
+		$scope.trans= b;
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o histórico da lotação');
+	});
+
+};
+
+function selecionaSituacao(){
+
+	$http.get('/configuracao/situacao').success(function(situacaolista){
+
+		$scope.situacoes = situacaolista;
+
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o equipamento');
+	});
+};
+
+function selecionaOperacao(){
+
+	$http.get('/configuracao/operacao').success(function(operacaolista){
+
+		$scope.operacoes = operacaolista;
+
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o equipamento');
+	});
+};
+
+function selecionaLotacao(){
+
+	$http.get('/configuracao/lotacao').success(function(lotacaoLista){
+
+		$scope.lotacoes = lotacaoLista;
+
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o equipamento');
+	});
+
+};
+
+selecionaOperacao();
+selecionaSituacao();
+selecionaLotacao();
+
 });

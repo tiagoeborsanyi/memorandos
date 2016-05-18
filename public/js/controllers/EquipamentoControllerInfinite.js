@@ -15,6 +15,17 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
 		$scope.page++;
 	};
 
+  $scope.remove = function(equipamento){
+    var confirmar = confirm("Tem certeza que deseja excluir?");
+    if(confirmar == true){
+      Equipamento.delete({id: equipamento.tombo},
+        window.location.reload(),
+        function(erro){
+          console.log('Não foi possível remover o equipamento');
+          console.log(erro);
+        });
+    }
+  };
 
 
   }]);
