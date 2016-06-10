@@ -22,7 +22,7 @@ if($routeParams.equipamentoId){
 
 $scope.salva = function(){
 
-	console.log("Equipamento "+ $scope.equipamento.tombo);
+	//console.log("Equipamento "+ $scope.equipamento.tombo); //Função de função e alterar esta funcionando
 
 	$scope.equipamento.$save()
 		.then(function(){
