@@ -94,13 +94,14 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 		$scope.memorando.assunto = $("#valoroperacao option:selected").text();
 		$scope.memorando.$save()
 				.then(function(){
-					//$scope.mensagem = "Memorando salvo com sucesso.";
+					$scope.message = "Memorando adicionado com sucesso.";
 					//limpa o form
 					$scope.memorando = new Memorando();
 					$('#tabela-body').html('');
 				})
 				.catch(function(erro){
 					console.log("Não foi possível salvar memorando.");
+					$scope.erro = "Falha para gravar memorando";
 					console.log(erro);
 				})
 	};

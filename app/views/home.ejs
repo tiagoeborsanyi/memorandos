@@ -59,13 +59,13 @@
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="">
-                            <span class="username">Admin</span>
+                            <span class="username"><%= usuario %></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                             <li class="eborder-top">
-                                <a href="#"><i class="icon_profile"></i> Perfil</a>
+                                <a href="#/edita/usuario/<%=id%>"><i class="icon_profile"></i> Perfil</a>
                             </li>
                             <li>
                                 <a href="/logout"><i class="icon_key_alt"></i> Log Out</a>
