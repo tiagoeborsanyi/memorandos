@@ -7,6 +7,103 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <section class="panel">
+        <div class="panel-body">
+          <form class="form-horizontal" ng-submit="salva()">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Nome:
+                  </label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Insira o nome do usuário" required ng-model="usuario.nome">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Email:
+                  </label>
+                  <div class="col-md-6">
+                    <input type="email" class="form-control" placeholder="Insira o email do usuário" required ng-model="usuario.email">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Administrador:
+                  </label>
+                  <div class="col-md-6">
+                    <label class="radio">
+									<input type="radio" name="adm" ng-value="true" ng-model="usuario.administrador"> Sim
+    								</label>
+    								<label class="radio">
+    									<input type="radio" name="adm" ng-value="false" ng-model="usuario.administrador"> Não
+    								</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Login:
+                  </label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Insira o Login do usuário" required ng-model="usuario.login">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Senha:
+                  </label>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Insira a senha do usuário" required ng-model="usuario.senha">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-lg-offset-5 col-md-6">
+                <button class="btn btn-primary" type="submit">Salvar</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
 
 
 </section>
