@@ -1,0 +1,7 @@
+.header, .dark-bg, nav-collapse {
+  display: none;
+}
+
+#header, #sidebar {
+  display: none;
+}
