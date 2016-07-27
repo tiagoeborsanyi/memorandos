@@ -112,7 +112,19 @@ stream.on('error', function (err) {
 				function(erro){
 					return console.error(erro);
 				});
+	};
 
+	controller.destroyMemorando = function (req, res) {
+		var _id = req.params.id;
+		Memorando.remove({"_id" : _id}).exec()
+			.then(
+				function(){
+					res.status(204).end();
+					res.redirect('/home#/inicio');
+				},
+				function(erro){
+					return console.error(erro);
+				});
 	};
 
 	controller.salvaMemorando = function(req, res){

@@ -162,7 +162,8 @@
                     <%= data[i].data %>
                   </div>
                   <div class="col-md-1">
-                    <a href="/home#/memorando/<%= data[i]._id %>"><span class="icon_pencil" style="margin-right: 8px;"></span></a>
+                    <a href="/home#/memorando/<%= data[i]._id %>"><span class="icon_pencil" style="margin-right: 8px;color: #fff;"></span></a>
+                    <a href="/destroy/<%= data[i]._id %>"><span class="icon_close_alt" style="color: #fff;"></span></a>
                   </div>
                 </div>
 
@@ -182,7 +183,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <label for="">Nº Memorando: </label>
-                    <a href="/home#/memorando/imprime/<%= data[i]._id %>"><%= data[i].numeromemorando %></a>
+                    <a href="/home#/memorando/imprime/<%= data[i]._id %>" style="color: #fff;"><%= data[i].numeromemorando %></a>
                   </div>
                   <div class="col-md-6">
                     <label for="">Assunto: </label>

@@ -29,6 +29,9 @@ module.exports = function(app){
 			.get(controller.obtemMemorandos)
 			.delete(controller.removeMemorando);
 
+	app.route('/destroy/:id')
+			.get(controller.destroyMemorando);
+
 	//Rota para elasticSearch de memorandos
 	app.route('/search')
 			.get(controller.elasticMemorando)
