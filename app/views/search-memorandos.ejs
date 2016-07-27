@@ -159,10 +159,10 @@
                 <div class="row">
                   <div class="col-md-11">
                     <label for="">Data: </label>
-                    <%= data[i]._source.data %>
+                    <%= data[i].data %>
                   </div>
                   <div class="col-md-1">
-                    <a href="/#/memorando/<%= data[i]._id %>"><span class="icon_pencil" style="margin-right: 8px;"></span></a>
+                    <a href="/home#/memorando/<%= data[i]._id %>"><span class="icon_pencil" style="margin-right: 8px;"></span></a>
                   </div>
                 </div>
 
@@ -171,22 +171,22 @@
                 <div class="row">
                   <div class="col-md-6">
                     <label for="">Lotação de Saída: </label>
-                    <%= data[i]._source.lotacaosaida %>
+                    <%= data[i].lotacaosaida %>
                   </div>
                   <div class="col-md-6">
                     <label for="">Lotação de Saída: </label>
-                    <%= data[i]._source.lotacaodestino %>
+                    <%= data[i].lotacaodestino %>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6">
                     <label for="">Nº Memorando: </label>
-                    <a href="/#/memorando/imprime/<%= data[i]._id %>"><%= data[i]._source.numeromemorando %></a>
+                    <a href="/home#/memorando/imprime/<%= data[i]._id %>"><%= data[i].numeromemorando %></a>
                   </div>
                   <div class="col-md-6">
                     <label for="">Assunto: </label>
-                    <%= data[i]._source.assunto %>
+                    <%= data[i].assunto %>
                   </div>
                 </div>
 
@@ -212,12 +212,12 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% for(var k = 0; k < data[i]._source.tabela.length; k++) { %>
+                        <% for(var k = 0; k < data[i].tabela.length; k++) { %>
                         <tr>
-                          <td><%= data[i]._source.tabela[k].tombo %></td>
-                          <td><%= data[i]._source.tabela[k].descricao %></td>
-                          <td><%= data[i]._source.tabela[k].local %></td>
-                          <td><%= data[i]._source.tabela[k].situacao %></td>
+                          <td><%= data[i].tabela[k].tombo %></td>
+                          <td><%= data[i].tabela[k].descricao %></td>
+                          <td><%= data[i].tabela[k].local %></td>
+                          <td><%= data[i].tabela[k].situacao %></td>
                         </tr>
                         <% } %>
                       </tbody>
@@ -229,7 +229,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for="">Observação</label>
-                    <%= data[i]._source.observacao %>
+                    <%= data[i].observacao %>
                   </div>
                 </div>
 

@@ -39,13 +39,14 @@ stream.on('error', function (err) {
 		if (req.query.q) {
 			Memorando.search({
 				query_string: { query: req.query.q}
-			}, function(err, results) {
+			},
+			{hydrate:true}, function(err, results) {
 				results:
 				if (err) return next(err);
 				var data = results.hits.hits.map(function(hit) {
 					return hit;
 				});
-				console.log(data);
+				console.log("DADOS: ", data);
 				res.render('search-memorandos', {data: data});
 			});
 		}
