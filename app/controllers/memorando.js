@@ -5,50 +5,33 @@ module.exports = function(app){
 	var Lotacao = app.models.lot;
 
 	var controller = {};
-
-	Memorando.createMapping(function (err, mapping) {
-  if (err) {
-    console.log('error creating mapping');
-		console.log(err);
-  } else {
-    console.log('Mapping created');
-    console.log(mapping);
-  }
-});
-
-var stream = Memorando.synchronize();
-var count = 0;
-
-stream.on('data', function () {
-  count++;
-});
-
-stream.on('close', function () {
-  console.log('Indexed '+count+' documents');
-});
-
-stream.on('error', function (err) {
-  console.log(err);
-});
-
-	controller.elasticMemorandoUrl = function (req, res) {
-		res.redirect('/search?q='+req.body.q);
-	}
+	var resultFormat = '';
 
 	controller.elasticMemorando = function (req, res) {
 		if (req.query.q) {
-			Memorando.search({
-				query_string: { query: req.query.q}
-			},
-			{hydrate:true}, function(err, results) {
-				results:
-				if (err) return next(err);
-				var data = results.hits.hits.map(function(hit) {
-					return hit;
-				});
-				console.log("DADOS: ", data);
-				res.render('search-memorandos', {data: data});
-			});
+			resultFormat = req.query.q.toString();
+			console.log(resultFormat.toString());
+			Memorando.find({$or:[
+				{"tabela.tombo": {$regex: resultFormat}},
+				{"tabela.situacao": {$regex: resultFormat}},
+				{"tabela.local": {$regex: resultFormat}},
+				{"tabela.descricao": {$regex: resultFormat}},
+				{numeromemorando: {$regex: resultFormat}},
+				{lotacaodestino: {$regex: resultFormat}},
+				{lotacaosaida: {$regex: resultFormat}},
+				{assunto: {$regex: resultFormat}},
+				{observacao: {$regex: resultFormat}}
+			]}).sort({data : -1}).populate('usuario').exec()
+				.then(
+					function(memorandos){
+						res.render('search-memorandos', {data: memorandos});
+						//res.json(memorandos)
+						//console.log('Data Memorandos: '+memorandos);
+					},
+					function(erro){
+						console.error('ERRO NO SERVER: ', erro);
+						res.status(500).json(erro);
+					});
 		}
 	};
 
