@@ -27,6 +27,7 @@
     "method-override": "^2.3.5",
     "mongoosastic": "^4.0.2",
     "mongoose": "^4.4.14",
+    "mongoose-auto-increment": "^5.0.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
   }
