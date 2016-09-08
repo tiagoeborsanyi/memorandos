@@ -1,7 +1,55 @@
-.header, .dark-bg, nav-collapse {
+* {
+  background:transparent !important;
+  color:#000 !important;
+  text-shadow:none !important;
+  filter:none !important;
+  -ms-filter:none !important;
+  margin-top:0 !important;
+}
+
+body {
+  margin-top:0 !important;
+  font: 11pt Arial;
+}
+
+.header, .dark-bg, .nav-collapse {
   display: none;
 }
 
-#header, #sidebar {
+#header, #sidebar, #top_menu {
   display: none;
+}
+
+@page {
+  margin-top: 0 !important;
+}
+
+.topo-linha-imprime {
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+.linha-print{
+	display: inline;
+}
+
+h5{
+	font-size: 10pt;
+	font-weight: normal;
+	font-weight: 40%;
+}
+
+h6{
+	font-size: 8pt;
+	font-family: Arial;
+	font-weight: normal;
+	font-weight: 40%;
+}
+
+.lista-tabela-imprime{
+	font-size:  10pt;
+}
+
+.titulo-imprime{
+	font-size: 10pt;
 }
