@@ -24,6 +24,11 @@ body {
   margin-top: 0 !important;
 }
 
+.imprime-quebra-linha {
+  display: block;
+  margin: 1.0cm;
+}
+
 .topo-linha-imprime {
   margin-top: 0 !important;
   padding: 0 !important;
