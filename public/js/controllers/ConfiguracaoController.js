@@ -3,6 +3,7 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 	var Lotacao = $resource('/configuracao/lotacao/:id');
 	var Situacao = $resource('/configuracao/situacao/:id');
 	var Operacao = $resource('/configuracao/operacao/:id');
+	var Equipamento = $resource('/configuracao/memorandoequipamento/:id');
 
 
 	function buscaSituacoes(){
@@ -210,6 +211,22 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 			});
 
 	};
+
+
+
+
+	function buscaModeloEquipamentos () {
+		Equipamento.query(
+			function(equipamentos){
+				$scope.modeloequipamentos = equipamentos;
+			},
+			function(erro){
+				console.log('Não foi possível obter os equipamentos.');
+				console.log(erro);
+			});
+	};
+
+	buscaModeloEquipamentos();
 
 
 });

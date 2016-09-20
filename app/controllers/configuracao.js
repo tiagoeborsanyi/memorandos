@@ -203,6 +203,10 @@ module.exports = function(app){
 		});
 	};
 
+	controller.removeModeloEquipamento = function (req, res) {
+
+	};
+
 	return controller;
 
 };

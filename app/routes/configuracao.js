@@ -37,4 +37,7 @@ module.exports = function(app){
 	app.route('/configuracao/memorandoequipamento')
 			.get(controller.listaModeloEquipamento)
 			.post(controller.salvaModeloEquipamento);
+
+	app.route('/configuracao/memorandoequipamento/:id')
+			.delete(controller.removeModeloEquipamento);
 };
