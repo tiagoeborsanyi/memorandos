@@ -41,8 +41,19 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 		});
 	};
 
+	function selecionaEquipamento() {
+		$http.get('/configuracao/memorandoequipamento').success(function(equipamentolista){
+			$scope.equipamentosLista = equipamentolista;
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o equipamento');
+		});
+	};
+
 	selecionaSituacao();
 	selecionaOperacao();
+	selecionaEquipamento();
 
 	$scope.adicionaItem = function(a) {
 		if($scope.memorando.tabela === undefined || $scope.memorando.tabela === null){

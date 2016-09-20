@@ -101,7 +101,16 @@
                   <tbody>
                     <tr ng-repeat="tabela in memorando.tabela track by $index" ng-hide="tabela.length">
                       <td><input type="text" placeholder="Tombo" class="form-control" required ng-model="tabela.tombo"></td>
-                      <td><input type="text" placeholder="Descrição" class="form-control" required ng-model="tabela.descricao"></td>
+                      <td>
+                        <!--input type="text" placeholder="Descrição" class="form-control" required ng-model="tabela.descricao"-->
+                        <select
+                          class="form-control"
+          								required
+          								ng-model="tabela.descricao"
+          								ng-options="tabela.equipamento as tabela.equipamento for tabela in equipamentosLista">
+          									<option value="">--Escolha um Equipamento--</option>
+          							</select>
+                      </td>
                       <td>
                         <select
                           class="form-control"
