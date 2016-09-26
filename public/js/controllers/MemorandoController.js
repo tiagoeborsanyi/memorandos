@@ -58,7 +58,7 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 	$scope.adicionaItem = function(a) {
 		if($scope.memorando.tabela === undefined || $scope.memorando.tabela === null){
 			$scope.memorando.tabela = [];
-			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: 'Manutenção'}, {teste: $("#provider-json-2").val()}];
+			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: 'Manutenção'}, {teste: $("#provider-json-2").val()}, {teste: $("#provider-json-1").val()}];
 			console.log($("#provider-json-2").val());
 		}
 		console.log($scope.memorando.tabela);
