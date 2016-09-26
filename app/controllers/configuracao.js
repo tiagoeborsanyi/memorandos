@@ -204,7 +204,15 @@ module.exports = function(app){
 	};
 
 	controller.removeModeloEquipamento = function (req, res) {
-
+		var id = req.params.id;
+		Equipamento.remove({_id : id}).exec()
+			.then(
+				function(){
+					res.status(204).end();
+				},
+				function(erro){
+					return console.error(erro);
+				});
 	};
 
 	return controller;

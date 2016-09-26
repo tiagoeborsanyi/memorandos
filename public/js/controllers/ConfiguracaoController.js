@@ -201,7 +201,7 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 
 		$scope.opr.$save()
 			.then(function(){
-				console.log("opr salvo ");
+				//console.log("opr salvo ");
 				//limpa o form
 				$scope.opr = new Operacao();
 				buscaOperacao();
@@ -211,7 +211,6 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 			});
 
 	};
-
 
 
 
@@ -225,8 +224,47 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 				console.log(erro);
 			});
 	};
+	function verificaMemorandoEquipamentoId(){
+		if($routeParams.memorandoEquipamentoId){
+			Situacao.get({id: $routeParams.memorandoEquipamentoId},
+			function(memorandoequipamento){
+				$scope.memorandoequipamento = memorandoequipamento;
+			},
+			function(erro){
+				console.log(erro);
+				console.log('não foi possível obter o equipamento');
+			});
+		}else{
+			//cria um novo objeto equipamento
+			$scope.memorandoequipamento = new Equipamento();
+		}
+	};
 
+	verificaMemorandoEquipamentoId();
 	buscaModeloEquipamentos();
 
+	$scope.removeModeloEquipamento = function(equipamento){
+		var confirmar = confirm("Tem certeza que deseja remover este equipamento?");
+		if(confirmar == true){
+			Equipamento.delete({id: equipamento._id},
+				buscaModeloEquipamentos,
+				function(erro){
+					console.log("Não foi possível remover a situação.");
+					console.log(erro);
+				});
+		}
+		//console.log(operation);
+	};
+
+	$scope.modeloEquipamentoSalva = function () {
+		console.log($scope.memorandoequipamento);
+		$scope.memorandoequipamento.$save().then(function () {
+			console.log('Modelo de equipamento salvo.');
+			$scope.memorandoequipamento = new Equipamento();
+			buscaModeloEquipamentos();
+		}).catch(function () {
+			console.log('Não foi possíve salvar a operação.');
+		});
+	}; //final da função modeloEquipamentoSalva
 
 });
