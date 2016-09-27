@@ -3,6 +3,7 @@ module.exports = function(app){
 	var Lotacao = app.models.lot;
 	var Operacao = app.models.opr;
 	var Situacao = app.models.situ;
+	var Equiparada = app.models.situacaoequiparada;
 	var Equipamento = app.models.memorandoequipamento;
 
 	var controller = {};
@@ -170,6 +171,32 @@ module.exports = function(app){
 				console.log(erro);
 			}else{
 				res.json(situacao);
+			}
+		});
+	};
+
+	controller.listaSituacaoEquiparada = function (req, res) {
+		Equiparada.find().exec()
+			.then(
+				function(equiparadas){
+					res.json(equiparadas);
+				},
+				function(erro){
+					console.error(erro);
+					res.status(500).json(erro);
+				});
+	};
+
+	controller.removeSitucaoEquiparada = function (req, res) {};
+
+	controller.salvaSituacaoEquiparada = function (req, res) {
+		var equiparada = new Equiparada(req.body);
+		equiparada.save(function(erro, equiparada){
+			if(erro){
+				res.status(500).end();
+				console.log(erro);
+			}else{
+				res.json(equiparada);
 			}
 		});
 	};
