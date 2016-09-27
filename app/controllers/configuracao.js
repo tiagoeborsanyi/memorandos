@@ -101,9 +101,7 @@ module.exports = function(app){
 				});
 	};
 
-	controller.obtemOperacao = function(req, res){
-
-	};
+	controller.obtemOperacao = function(req, res){};
 
 	controller.removeOperacao = function(req, res){
 
@@ -146,9 +144,7 @@ module.exports = function(app){
 				});
 	};
 
-	controller.obtemSituacao = function(req, res){
-
-	};
+	controller.obtemSituacao = function(req, res){};
 
 	controller.removeSituacao = function(req, res){
 
