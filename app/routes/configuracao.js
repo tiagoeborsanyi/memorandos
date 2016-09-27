@@ -34,6 +34,13 @@ module.exports = function(app){
 			.get(controller.obtemSituacao)
 			.delete(controller.removeSituacao);
 
+	app.route('/configuracao/situacaoequiparada')
+			.get(controller.listaSituacaoEquiparada)
+			.post(controller.salvaSituacaoEquiparada);
+
+	app.route('/configuracao/situacaoequiparada/:id')
+			.delete(controller.removeSitucaoEquiparada);
+
 	app.route('/configuracao/memorandoequipamento')
 			.get(controller.listaModeloEquipamento)
 			.post(controller.salvaModeloEquipamento);
