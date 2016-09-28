@@ -4,11 +4,12 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 	var Situacao = $resource('/configuracao/situacao/:id');
 	var Operacao = $resource('/configuracao/operacao/:id');
 	var Equipamento = $resource('/configuracao/memorandoequipamento/:id');
+	var Equiparada = $resource('/configuracao/situacaoequiparada/:id');
 
 
 	function buscaSituacoes(){
 
-		Situacao.query(
+		Equiparada.query(
 			function(situacoes){
 				$scope.situacoes = situacoes;
 			},
@@ -24,7 +25,7 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 		var confirmar = confirm("Tem certeza que deseja remover esta situação.");
 
 		if(confirmar == true){
-			Situacao.delete({id: situation._id},
+			Equiparada.delete({id: situation._id},
 				buscaSituacoes,
 				function(erro){
 					console.log("Não foi possível remover a situação.");
@@ -40,7 +41,7 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 
 		if($routeParams.situacaoId){
 
-			Situacao.get({id: $routeParams.situacaoId},
+			Equiparada.get({id: $routeParams.situacaoId},
 			function(eqpt){
 				$scope.eqpt = eqpt;
 
@@ -51,9 +52,8 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 			});
 		}else{
 			//cria um novo objeto equipamento
-			$scope.eqpt = new Situacao();
+			$scope.eqpt = new Equiparada();
 		}
-
 	};
 
 	verificaSituacaoId();
@@ -65,7 +65,7 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 			.then(function(){
 				console.log("lot salvo "+ $scope.eqpt.teste);
 				//limpa o form
-				$scope.eqpt = new Situacao();
+				$scope.eqpt = new Equiparada();
 				buscaSituacoes();
 			})
 			.catch(function(erro){

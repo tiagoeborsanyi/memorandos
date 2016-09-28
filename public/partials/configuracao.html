@@ -44,8 +44,8 @@
                             Situação:
                           </label>
                           <div class="col-md-6">
-                            <input type="text" class="form-control" style="width:48%;display:inline" placeholder="Incluir situação Memorando" required ng-model="eqpt.situacao">
-                            <input type="text" class="form-control" style="width:48%;display:inline;margin-left:10px;" placeholder="Incluir situação Impressão">
+                            <input type="text" class="form-control" style="width:48%;display:inline" placeholder="Incluir situação Memorando" required ng-model="eqpt.memorando">
+                            <input type="text" class="form-control" style="width:48%;display:inline;margin-left:10px;" placeholder="Incluir situação Impressão" required ng-model="eqpt.impressao">
                           </div>
                         </div>
                       </div>
@@ -68,8 +68,8 @@
                     </tr>
                     <tr ng-repeat="eqpt in situacoes">
                       <td>{{$index+1}}</td>
-                      <td>{{eqpt.situacao}}</td>
-                      <td>TESTE</td>
+                      <td>{{eqpt.situacao[0].memorando}}</td>
+                      <td>{{eqpt.situacao[0].impressao}}</td>
                       <td>
                         <div class="btn-group">
                           <button class="btn btn-danger" ng-click="removeSituation(eqpt)"><i class="icon_close_alt2"></i></button>
