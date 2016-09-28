@@ -3,11 +3,8 @@ var mongoose = require('mongoose');
 module.exports = function(){
 
 	var schema = mongoose.Schema({
-		situacao: {
-		type: [],
-		required: true
-		}
+		situacao: []
 	});
 
-	return mongoose.model('Situacaoequiparada', schema);	
+	return mongoose.model('Situacaoequiparada', schema);
 };

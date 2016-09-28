@@ -191,7 +191,10 @@ module.exports = function(app){
 
 	controller.salvaSituacaoEquiparada = function (req, res) {
 		//console.log(req.body);
-		var equiparada = new Equiparada(req.body);
+		var dados = {
+			"situacao" : req.body
+		}
+		var equiparada = new Equiparada(dados);
 		equiparada.save(function(erro, equiparada){
 			if(erro){
 				res.status(500).end();

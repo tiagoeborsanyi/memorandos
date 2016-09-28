@@ -224,6 +224,7 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 				console.log(erro);
 			});
 	};
+
 	function verificaMemorandoEquipamentoId(){
 		if($routeParams.memorandoEquipamentoId){
 			Situacao.get({id: $routeParams.memorandoEquipamentoId},
