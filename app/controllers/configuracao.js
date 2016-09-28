@@ -190,6 +190,7 @@ module.exports = function(app){
 	controller.removeSitucaoEquiparada = function (req, res) {};
 
 	controller.salvaSituacaoEquiparada = function (req, res) {
+		//console.log(req.body);
 		var equiparada = new Equiparada(req.body);
 		equiparada.save(function(erro, equiparada){
 			if(erro){
