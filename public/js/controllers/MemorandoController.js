@@ -76,7 +76,7 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 		Memorando.get({id: $routeParams.id},
 		function(memorando){
 			$scope.memorando = memorando;
-			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: $scope.memorando.lotacaodestino}];
+			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: 'Manutenção'}, {teste: $scope.memorando.lotacaodestino}, {teste: $scope.memorando.lotacaosaida}];
 			//$scope.diamesano = formataData(memorando.data);
 		},
 		function(erro){
