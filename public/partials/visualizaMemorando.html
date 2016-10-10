@@ -74,7 +74,8 @@
                   <td>{{tabela.tombo}}</td>
                   <td>{{tabela.descricao}}</td>
                   <td>{{tabela.local}}</td>
-                  <td>{{tabela.situacao}}</td>
+                  <td ng-if="tabela.situacao[0].situacao[0].memorando">{{tabela.situacao[0].situacao[0].memorando}}</td>
+                  <td ng-if="tabela.situacao.length < 35">{{tabela.situacao}}</td>
                 </tr>
               </tbody>
             </table>

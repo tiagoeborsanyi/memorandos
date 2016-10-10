@@ -124,8 +124,8 @@
                         <select
                           class="form-control"
           								required
-          								ng-model="tabela.situacao"
-          								ng-options="tabela.situacao[0].memorando as tabela.situacao[0].memorando for tabela in situacoes">
+          								ng-model="tabela.situacao[$index]"
+          								ng-options="tabela.situacao[0].memorando for tabela in situacoes">
           									<option value="">--Escolha uma Situação--</option>
           							</select>
                       </td>

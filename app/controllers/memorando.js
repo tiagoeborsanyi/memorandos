@@ -180,7 +180,7 @@ module.exports = function(app){
 				"assunto" : req.body.assunto
 			};
 
-			Equipamento.create(tab)
+			/*Equipamento.create(tab)
 				.then(
 					function(equipamento){
 						res.status(201).json(equipamento);
@@ -188,7 +188,7 @@ module.exports = function(app){
 					function(erro){
 						console.log(erro);
 						res.status(500).json(erro);
-					});
+					});*/
 		}
 
 
