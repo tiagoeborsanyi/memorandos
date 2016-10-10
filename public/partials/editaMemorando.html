@@ -125,7 +125,7 @@
                           class="form-control"
           								required
           								ng-model="tabela.situacao"
-          								ng-options="tabela.situacao as tabela.situacao for tabela in situacoes">
+          								ng-options="tabela.situacao[0].memorando as tabela.situacao[0].memorando for tabela in situacoes">
           									<option value="">--Escolha uma Situação--</option>
           							</select>
                       </td>

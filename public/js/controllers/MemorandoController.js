@@ -32,7 +32,8 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 	};
 
 	function selecionaSituacao(){
-		$http.get('/configuracao/situacao').success(function(situacaolista){
+		$http.get('/configuracao/situacaoequiparada').success(function(situacaolista){
+			console.log(situacaolista);
 			$scope.situacoes = situacaolista;
 		},
 		function(erro){
