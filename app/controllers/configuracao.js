@@ -187,7 +187,17 @@ module.exports = function(app){
 				});
 	};
 
-	controller.removeSitucaoEquiparada = function (req, res) {};
+	controller.removeSitucaoEquiparada = function (req, res) {
+		var id = req.params.id;
+		Equiparada.remove({_id : id}).exec()
+			.then(
+				function(){
+					res.status(204).end();
+				},
+				function(erro){
+					return console.error(erro);
+				});
+	};
 
 	controller.salvaSituacaoEquiparada = function (req, res) {
 		//console.log(req.body);
