@@ -13,7 +13,7 @@ module.exports = function(){
 			required: true
 		},
 		situacao: {
-			type: String
+			type: []
 		},
 		lotacaosaida: {
 			type: String
