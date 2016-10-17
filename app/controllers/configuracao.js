@@ -216,7 +216,7 @@ module.exports = function(app){
 	};
 
 	controller.listaModeloEquipamento = function (req, res) {
-		Equipamento.find().exec()
+		Equipamento.find().sort({equipamento: 1}).exec()
 			.then(
 				function(equipamentos){
 					res.json(equipamentos);
