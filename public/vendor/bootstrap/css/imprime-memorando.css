@@ -46,6 +46,10 @@
 			font-family: Arial;
 		}
 
+		.lista-tabela-imprime {
+			font-size: 85%;
+		}
+
 		#loader-icon {
 			position: relative;
 			top: 50%;
