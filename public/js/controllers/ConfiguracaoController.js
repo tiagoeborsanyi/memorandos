@@ -11,6 +11,7 @@ angular.module('memorandos').controller('ConfiguracaoController', function($http
 
 		Equiparada.query(
 			function(situacoes){
+				//console.log(situacoes);
 				$scope.situacoes = situacoes;
 			},
 			function(erro){
