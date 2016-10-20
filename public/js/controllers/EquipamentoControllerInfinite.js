@@ -28,6 +28,11 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   };
 
 
+  //Essa função faz a busca de situação do equipamento
+  //Existe varios equipamentos com o mesmo tombo, então devemos pegar somente os equipamentos que tem a ultima data de cadastro
+  //com a situação relacionada
+  //Existe um porém, se existir a data com a situação, neste matching nao pode haver nenhuma data mais nova com outra situação
+  //A data é o carro chefe para fazer o match e em seguida a situação.
   $scope.situacao = function(){
 
   	console.log("dentro de function situacao "+$scope.eqpt.situacao.situacao);
@@ -106,6 +111,7 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
 
   };
 
+  //função para listar todas as situação no select na aba de relatórios de equipamentos
   function selecionaSituacao(){
 
   	$http.get('/configuracao/situacao').success(function(situacaolista){
