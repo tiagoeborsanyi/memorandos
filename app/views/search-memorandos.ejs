@@ -211,7 +211,11 @@
                           <td><%= data[i].tabela[k].tombo %></td>
                           <td><%= data[i].tabela[k].descricao %></td>
                           <td><%= data[i].tabela[k].local %></td>
-                          <td><%= data[i].tabela[k].situacao %></td>
+                          <% if(data[i].tabela[k].situacao.length < 35) { %>
+                            <td><%= data[i].tabela[k].situacao %></td>
+                          <% } else { %>
+                            <td><%= data[i].tabela[k].situacao[k].situacao[0].memorando %></td>
+                          <% } %>
                         </tr>
                         <% } %>
                       </tbody>
