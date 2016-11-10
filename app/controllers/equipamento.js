@@ -107,21 +107,16 @@ module.exports = function(app){
 			        situacao: {$last: "$situacao"},
 			        ultimaData: {$last: "$data"},
 			        descricao: {$last: "$descricao"}}
-
 			    }
 		  ], function(err, result){
 		  	if(err){
 		  		console.log("ERRO SITUACAO "+err);
 		  		return;
 		  	}
-
-
 		  	//console.log("retur equipamento: "+result);
 		  	res.json(result);
-
 		  });
-
-	};
+	};//final da função para trazer todas as situações
 
 
 	//A operação se refere ao assunto do memorando

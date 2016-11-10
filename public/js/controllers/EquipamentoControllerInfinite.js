@@ -38,6 +38,7 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   	console.log("dentro de function situacao "+$scope.eqpt.situacao.situacao);
 
   	$http.get('/equipamento/situacao').success(function(situacao){
+      console.log('sem filtro: ',situacao);
 
   		var b = [];
   		for(var i = 0; i < situacao.length; i++){
@@ -47,16 +48,14 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   				b.push(situacao[i]);
   			}
   		}
-
   		$scope.ept = b;
-  		console.log($scope.ept);
-
+  		console.log('com filtro: ', $scope.ept.length);
   	},
   	function(erro){
   		console.log(erro);
   		console.log('não foi possível obter o equipamento');
   	});
-  };
+  }; //final da função de trazer situações
 
   $scope.operacao = function(){
 
