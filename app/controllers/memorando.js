@@ -126,7 +126,7 @@ module.exports = function(app){
 		};
 
 
-		console.log("reqBody "+req.body.tabela[0].tombo);
+		//console.log("reqBody "+req.body.tabela[0].tombo);
 
 		if(_id){
 
@@ -170,25 +170,27 @@ module.exports = function(app){
 
 			for(var i = 0; i < req.body.tabela.length; i++){
 
+				console.log("situacao: "+req.body.tabela[i].situacao[0].situacao[0].memorando);
+
 			var tab = {
 				"tombo" : req.body.tabela[i].tombo,
 				"descricao" : req.body.tabela[i].descricao,
 				"local" : req.body.tabela[i].local,
-				"situacao" : req.body.tabela[i].situacao,
+				"situacao" : req.body.tabela[i].situacao[0].situacao[0].memorando,
 				"lotacaosaida" : req.body.lotacaosaida,
 				"lotacaodestino" : req.body.lotacaodestino,
 				"assunto" : req.body.assunto
 			};
 
-			/*Equipamento.create(tab)
-				.then(
-					function(equipamento){
-						res.status(201).json(equipamento);
-					},
-					function(erro){
-						console.log(erro);
-						res.status(500).json(erro);
-					});*/
+			Equipamento.create(tab)
+			.then(
+				function(equipamento){
+					res.status(201).json(equipamento);
+				},
+				function(erro){
+					console.log(erro);
+					res.status(500).json(erro);
+				});
 		}
 
 

@@ -41,8 +41,8 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   		var b = [];
   		for(var i = 0; i < situacao.length; i++){
   			var obj = situacao[i];
-        //console.log(situacao[i].situacao);
-  			if($scope.eqpt.situacao.situacao == situacao[i]['situacao']){
+        console.log(situacao[i].situacao[0]);
+  			if($scope.eqpt.situacao.situacao == situacao[i].situacao[0]){
 
   				b.push(situacao[i]);
           //console.log(situacao[i]._id == '137190');
