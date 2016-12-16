@@ -35,21 +35,29 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   //A data é o carro chefe para fazer o match e em seguida a situação.
   $scope.situacao = function(){
 
-  	console.log("dentro de function situacao "+$scope.eqpt.situacao.situacao);
-
   	$http.get('/equipamento/situacao').success(function(situacao){
-      console.log('sem filtro: ',situacao);
+      //console.log('sem filtro: ',situacao);
 
   		var b = [];
   		for(var i = 0; i < situacao.length; i++){
   			var obj = situacao[i];
+        //console.log(situacao[i].situacao);
   			if($scope.eqpt.situacao.situacao == situacao[i]['situacao']){
 
   				b.push(situacao[i]);
+          //console.log(situacao[i]._id == '137190');
   			}
   		}
   		$scope.ept = b;
-  		console.log('com filtro: ', $scope.ept.length);
+
+  		//console.log('com filtro: ', $scope.ept.length);
+      //inicio de teste para ver se os parametros estao vindo corretos
+      for(var k = 0; k < $scope.ept.length; k++) {
+        if ('118989' == b[k].situacao){
+          console.log(b[k]);
+        }
+      }//final do teste
+
   	},
   	function(erro){
   		console.log(erro);
