@@ -77,8 +77,8 @@
                           <div class="col-md-6">
                             <select
                                 class="form-control"
-                                ng-model="eqpt.situacao"
-                                ng-options="situ.situacao for situ in situacoes">
+                                ng-model="tabela.situacao.memorando"
+                                ng-options="tabela.situacao[0].memorando for tabela in situacoes">
                 								        <option value="">--Escolha uma Situação--</option>
                 						</select>
                           </div>

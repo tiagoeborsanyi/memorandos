@@ -41,20 +41,21 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   		var b = [];
   		for(var i = 0; i < situacao.length; i++){
   			var obj = situacao[i];
-        console.log(situacao[i].situacao[0]);
-  			if($scope.eqpt.situacao.situacao == situacao[i].situacao[0]){
+        //console.log(situacao[i].situacao[0]);
+  			if($scope.tabela.situacao.memorando.situacao[0].memorando == situacao[i].situacao[0]){
 
   				b.push(situacao[i]);
           //console.log(situacao[i]._id == '137190');
   			}
   		}
   		$scope.ept = b;
+      console.log($scope.tabela.situacao.memorando.situacao[0].memorando);
 
   		//console.log('com filtro: ', $scope.ept.length);
       //inicio de teste para ver se os parametros estao vindo corretos
       for(var k = 0; k < $scope.ept.length; k++) {
         if ('118989' == b[k].situacao){
-          console.log(b[k]);
+          //console.log(b[k]);
         }
       }//final do teste
 
@@ -121,7 +122,7 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   //função para listar todas as situação no select na aba de relatórios de equipamentos
   function selecionaSituacao(){
 
-  	$http.get('/configuracao/situacao').success(function(situacaolista){
+  	$http.get('/configuracao/situacaoequiparada').success(function(situacaolista){
 
   		$scope.situacoes = situacaolista;
 
