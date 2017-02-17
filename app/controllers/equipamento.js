@@ -55,6 +55,23 @@ module.exports = function(app){
 				});
 	};
 
+
+	//Pesquisa de determinado equipamento para mostrar o historico do mesmo
+	controller.pesquisaHistoricoEquipamento = function(req, res) {
+
+		var t = req.params.pesquisatombo;
+		Equipamento.findOne({tombo: t}).exec()
+			.then(
+				function(historico) {
+					if (!historico) throw new error('Equipamento não encontrado');
+					res.json(historico);
+ 				},
+				function(erro) {
+					console.log(erro);
+					res.status(404).json(erro);
+				});
+	};
+
 	//function remove um usuário
 	controller.removeEquipamento = function(req, res){
 

@@ -33,6 +33,9 @@ module.exports = function(app){
 	app.route('/equipamento/historico/:tombo')
 		.get(controller.obtemHistoricoEquipamento);
 
+		app.route('/equipamento/pesquisa/:pesquisatombo')
+			.get(controller.pesquisaHistoricoEquipamento);
+
 
 
 };
