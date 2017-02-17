@@ -15,6 +15,19 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
 		$scope.page++;
 	};
 
+  $scope.pesquisaEquipamento = function() {
+  	console.log($scope.e.tombo);
+  	console.log("pesquisa memorando");
+    var tombo = $scope.e.tombo;
+    $http.get('/equipamento/historico/'+tombo).success(function(equipamento){
+  		$scope.equipamentos = equipamento;
+  	},
+  	function(erro){
+  		console.log(erro);
+  		console.log('não foi possível obter o equipamento');
+  	});
+  };
+
   $scope.remove = function(equipamento){
     var confirmar = confirm("Tem certeza que deseja excluir?");
     if(confirmar == true){
