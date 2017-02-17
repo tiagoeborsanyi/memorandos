@@ -36,20 +36,20 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   $scope.situacao = function(){
 
   	$http.get('/equipamento/situacao').success(function(situacao){
-      //console.log('sem filtro: ',situacao);
+      console.log('sem filtro: ',situacao);
 
   		var b = [];
   		for(var i = 0; i < situacao.length; i++){
   			var obj = situacao[i];
-        //console.log(situacao[i].situacao[0]);
+        console.log(situacao[i].situacao[0]);
   			if($scope.tabela.situacao.memorando.situacao[0].memorando == situacao[i].situacao[0]){
 
   				b.push(situacao[i]);
           //console.log(situacao[i]._id == '137190');
+          //console.log($scope.tabela.situacao.memorando.situacao[0].memorando == situacao[i].situacao[0]);
   			}
   		}
   		$scope.ept = b;
-      console.log($scope.tabela.situacao.memorando.situacao[0].memorando);
 
   		//console.log('com filtro: ', $scope.ept.length);
       //inicio de teste para ver se os parametros estao vindo corretos

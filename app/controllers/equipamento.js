@@ -62,9 +62,12 @@ module.exports = function(app){
 		var dados = {
 			"tombo" : req.body.tombo,
 			"descricao" : req.body.descricao,
-			"situacao" : req.body.situacao,
-			"usuario" : req.user._id
+			"situacao" : [req.body.situacao[0].situacao[0].memorando],
+			"usuario" : req.user._id,
+			"data": Date()
 		};
+
+		console.log(req.body.situacao[0].situacao[0].memorando);
 
 		//console.log("equipamento user: "+req.user.login);
 
@@ -104,16 +107,20 @@ module.exports = function(app){
 			    {$sort: { ultimaData: 1}},
 			    {$group: {
 			        _id: "$tombo",
+							ultimaData: {$last: "$data"},
 			        situacao: {$last: "$situacao"},
-			        ultimaData: {$last: "$data"},
-			        descricao: {$last: "$descricao"}}
-			    }
+			        descricao: {$last: "$descricao"}}}
+						/*{$project: {
+							situacao: 1,
+							descricao: 1
+						}}*/
+
 		  ], function(err, result){
 		  	if(err){
 		  		console.log("ERRO SITUACAO "+err);
 		  		return;
 		  	}
-		  	//console.log("retur equipamento: "+result);
+		  	console.log(result);
 		  	res.json(result);
 		  });
 	};//final da função para trazer todas as situações

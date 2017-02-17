@@ -50,7 +50,13 @@
                     Situação:
                   </label>
                   <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Pronto para entrega ou a definir" required ng-model="equipamento.situacao">
+                    <!--input type="text" class="form-control" placeholder="Pronto para entrega ou a definir" required ng-model="equipamento.situacao"-->
+                    <select
+                        class="form-control"
+                        ng-model="equipamento.situacao[0]"
+                        ng-options="tabela.situacao[0].memorando for tabela in situacoes">
+                                <option value="">--Escolha uma Situação--</option>
+                    </select>
                   </div>
                 </div>
               </div>
