@@ -30,6 +30,9 @@ module.exports = function(app){
 			.get(controller.obtemEquipamentos)
 			.delete(controller.removeEquipamento);
 
+	app.route('/equipamento/historico/:tombo')
+		.get(controller.obtemHistoricoEquipamento);
+
 
 
 };

@@ -37,6 +37,24 @@ module.exports = function(app){
 
 	};
 
+
+	//Pegar o histórico do equipamento.
+	//Buscar pelo tombo do equipamento dando um find(tombo)
+	controller.obtemHistoricoEquipamento = function(req, res) {
+
+		var t = req.params.tombo;
+		Equipamento.find({tombo: t}).exec()
+			.then(
+				function(historico) {
+					if (!historico) throw new error('Equipamento não encontrado');
+					res.json(historico);
+ 				},
+				function(erro) {
+					console.log(erro);
+					res.status(404).json(erro);
+				});
+	};
+
 	//function remove um usuário
 	controller.removeEquipamento = function(req, res){
 
