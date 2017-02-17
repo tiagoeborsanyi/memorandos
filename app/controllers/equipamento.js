@@ -68,11 +68,20 @@ module.exports = function(app){
 		};
 
 		console.log(req.body.situacao[0].situacao[0].memorando);
+		Equipamento.create(dados)
+			.then(
+				function(equipamento){
+					res.status(201).json(equipamento);
+				},
+				function(erro){
+					console.log(erro);
+					res.status(500).json(erro);
+				});
 
 		//console.log("equipamento user: "+req.user.login);
 
 		//criar um if() para verificar se é um update ou não
-		if(_id){
+		/*if(_id){
 
 			Equipamento.findByIdAndUpdate(_id, dados).exec()
 				.then(
@@ -96,7 +105,7 @@ module.exports = function(app){
 						console.log(erro);
 						res.status(500).json(erro);
 					});
-		}
+		}*/
 
 	};
 
