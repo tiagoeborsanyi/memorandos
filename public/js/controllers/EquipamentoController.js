@@ -6,6 +6,17 @@ angular.module('memorandos').controller('EquipamentoController', function($http,
 	});
 
 
+if($routeParams.tombo) {
+	var t = $routeParams.tombo;
+	$http.get('/equipamento/historico/'+t).success(function(historico){
+		$scope.historico = historico;
+	},
+	function(erro){
+		console.log(erro);
+		console.log('não foi possível obter o historico');
+	});
+}
+
 if($routeParams.equipamentoId){
 	Equipamento.get({id: $routeParams.equipamentoId},
 	function(equipamento){

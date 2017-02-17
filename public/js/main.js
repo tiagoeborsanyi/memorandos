@@ -70,6 +70,11 @@ angular.module('memorandos', ['ngRoute', 'ngResource', 'tagged.directives.infini
 		controller: 'EquipamentoController'
 	});
 
+	$routeProvider.when('/hist/equipamento/historico/:tombo', {
+		templateUrl: '/partials/historicoTombo.html',
+		controller: 'EquipamentoController'
+	});
+
 
 
 	/*
