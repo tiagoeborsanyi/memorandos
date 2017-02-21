@@ -16,8 +16,6 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
 	};
 
   $scope.pesquisaEquipamento = function() {
-  	console.log($scope.e.tombo);
-  	console.log("pesquisa memorando");
     var tombo = $scope.e.tombo;
     $http.get('/equipamento/historico/'+tombo).success(function(equipamento){
   		$scope.equipamentos = equipamento;
