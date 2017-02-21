@@ -147,7 +147,7 @@ module.exports = function(app){
 				"tombo" : req.body.tabela[i].tombo,
 				"descricao" : req.body.tabela[i].descricao,
 				"local" : req.body.tabela[i].local,
-				"situacao" : req.body.tabela[i].situacao,
+				"situacao" : req.body.tabela[i].situacao[0].situacao[0].memorando,
 				"lotacaosaida" : req.body.lotacaosaida,
 				"lotacaodestino" : req.body.lotacaodestino,
 				"assunto" : req.body.assunto
