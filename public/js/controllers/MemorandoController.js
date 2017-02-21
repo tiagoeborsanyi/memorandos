@@ -104,6 +104,7 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 		$scope.memorando.lotacaosaida = $("#provider-json-1").val();
 		$scope.memorando.lotacaodestino = $("#provider-json-2").val();
 		$scope.memorando.assunto = $("#valoroperacao option:selected").text();
+
 		$scope.memorando.$save()
 				.then(function(){
 					$scope.message = "Memorando adicionado com sucesso.";
@@ -112,6 +113,7 @@ angular.module('memorandos').controller('MemorandoController', function($scope, 
 					$('#tabela-body').html('');
 				})
 				.catch(function(erro){
+					console.log($scope.memorando);
 					console.log("Não foi possível salvar memorando.");
 					$scope.erro = "Falha para gravar memorando";
 					console.log(erro);

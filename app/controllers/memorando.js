@@ -147,7 +147,7 @@ module.exports = function(app){
 				"tombo" : req.body.tabela[i].tombo,
 				"descricao" : req.body.tabela[i].descricao,
 				"local" : req.body.tabela[i].local,
-				"situacao" : req.body.tabela[i].situacao[0].situacao[0].memorando,
+				"situacao" : req.body.tabela[i].situacao[i].situacao[0].memorando,
 				"lotacaosaida" : req.body.lotacaosaida,
 				"lotacaodestino" : req.body.lotacaodestino,
 				"assunto" : req.body.assunto
@@ -170,13 +170,13 @@ module.exports = function(app){
 
 			for(var i = 0; i < req.body.tabela.length; i++){
 
-				console.log("situacao: "+req.body.tabela[i].situacao[0].situacao[0].memorando);
+				console.log("situacao: "+req.body.tabela[i].situacao[i].situacao[0].memorando);
 
 			var tab = {
 				"tombo" : req.body.tabela[i].tombo,
 				"descricao" : req.body.tabela[i].descricao,
 				"local" : req.body.tabela[i].local,
-				"situacao" : req.body.tabela[i].situacao[0].situacao[0].memorando,
+				"situacao" : req.body.tabela[i].situacao[i].situacao[0].memorando,
 				"lotacaosaida" : req.body.lotacaosaida,
 				"lotacaodestino" : req.body.lotacaodestino,
 				"assunto" : req.body.assunto
