@@ -76,6 +76,15 @@ angular.module('memorandos', ['ngRoute', 'ngResource', 'tagged.directives.infini
 	});
 
 
+	/*
+		BAIXA DE EQUIPAMENTOS
+	*/
+	$routeProvider.when('/cadastra/baixa/equipamento/', {
+		templateUrl: '/partials/baixaEquipamento.html',
+		controller: 'BaixaController'
+	});
+
+
 
 	/*
 		ROTAS PARA OS OBJETOS ADMINISTRAÇÃO
