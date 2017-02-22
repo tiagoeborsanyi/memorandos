@@ -7,4 +7,170 @@
     </div>
   </div>
 
+  <div class="alert alert-success fade in" ng-show="message.length > 0">
+    <strong>{{message}}</strong>
+  </div>
+  <div class="alert alert-block alert-danger fade in" ng-show="erro.length > 0">
+    <strong>{{message}}</strong>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <section class="panel">
+        <div class="panel-body">
+          <form class="form-horizontal" ng-submit="salva()">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Lotação de Saída:
+                  </label>
+                  <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Lotação de Saída" id="provider-json-1" required ng-model="memorando.lotacaosaida">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Lotação de Destino:
+                  </label>
+                  <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Lotação de Destino" id="provider-json-2" required ng-model="memorando.lotacaodestino">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label class="col-md-4">
+                    Nº Relatório:
+                  </label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" placeholder="Nº Memorando inserido automaticamente" ng-model="memorando.numeromemorando">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Texto:
+                  </label>
+                  <div class="col-md-10">
+                    <textarea class="form-control" placeholder="Texto livre para incluir no relatório" ng-model=""></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+              <div>
+                <p style="text-align: center;"><strong>Relação de Equipamentos</strong></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <table id="tabela" class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Tombo</th>
+                      <th>Descrição</th>
+                      <th>Situação</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="tabela in memorando.tabela track by $index" ng-hide="tabela.length">
+                      <td><input type="text" placeholder="Tombo" class="form-control" required ng-model="tabela.tombo"></td>
+                      <td>
+                        <!--input type="text" placeholder="Descrição" class="form-control" required ng-model="tabela.descricao"-->
+                        <select
+                          class="form-control"
+          								required
+          								ng-model="tabela.descricao"
+          								ng-options="tabela.equipamento as tabela.equipamento for tabela in equipamentosLista">
+          									<option value="">--Escolha um Equipamento--</option>
+          							</select>
+                      </td>
+                      <td>
+                        <select
+                          class="form-control"
+          								required
+          								ng-model="tabela.situacao[$index]"
+          								ng-options="tabela.situacao[0].memorando for tabela in situacoes">
+          									<option value="">--Escolha uma Situação--</option>
+          							</select>
+                      </td>
+                      <td><button class="btn-link remove-item" ng-click="removeItem($index)"><i class="icon_close_alt2"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <button class="btn btn-default" type="button" id="btn-adiciona" ng-click="adicionaItem(tabela); selecionaSituacao;">Adicionar</button>
+              </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Nome Responsável:
+                  </label>
+                  <div class="col-md-10">
+                    <input type="text" class="form-control" id="" placeholder="Escreva o nome do responsável para assinatura" required ng-model="memorando.observacao">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Descrição Responsável:
+                  </label>
+                  <div class="col-md-10">
+                    <input type="text" class="form-control" id="" placeholder="Escreva a descrição do responsável para assinatura" required ng-model="memorando.observacao">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+              <div class="col-lg-offset-5 col-md-6">
+                <button class="btn btn-primary" type="submit">Salvar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+
 </section>
