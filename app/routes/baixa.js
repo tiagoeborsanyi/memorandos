@@ -1,5 +1,5 @@
 module.exports = function (app) {
 
-  var controller = app.controller.baixa;
+  var controller = app.controllers.baixa;
 
 };
