@@ -19,7 +19,7 @@ module.exports = function (app) {
   };
 
   controller.salvaBaixa = function (req, res) {
-
+    res.json(req.body)
   };
 
   return controller;

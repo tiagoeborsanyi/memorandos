@@ -42,20 +42,49 @@ angular.module('memorandos').controller('BaixaController', function($http, $scop
 
   //Função para quando clicar no botão de editar ir para a pagina de edição do memorando
 	if($routeParams.id){
-		Memorando.get({id: $routeParams.id},
+		Baixa.get({id: $routeParams.id},
 		function(memorando){
 			$scope.memorando = memorando;
-			$scope.selecionalotacao = [{teste: 'Em Transito'}, {teste: 'Manutenção'}, {teste: $scope.memorando.lotacaodestino}, {teste: $scope.memorando.lotacaosaida}];
-			//$scope.diamesano = formataData(memorando.data);
 		},
 		function(erro){
 			console.log(erro);
-			console.log('não foi possível obter o memorando')
+			console.log('não foi possível obter o relatório de baixa.')
 		});
 	}else{
 		//cria um novo objeto Baixa()
 		$scope.baixa = new Baixa();
 	}
+
+  //Função para salvar os dados de baixa de equipamentos
+	$scope.salva = function(){
+
+		if($scope.baixa.tabela !== undefined){
+			$scope.baixa.tabelas = new Array();
+			var t = $scope.baixa.tabela.length;
+			for(var i = 0; i < t; i++){
+				$scope.baixa.tabelas.push($scope.baixa.tabela[i]);
+			}
+			console.log($scope.baixa.tabelas);
+		}
+
+		$scope.baixa.lotacaosaida = $("#provider-json-1").val();
+		$scope.baixa.lotacaodestino = $("#provider-json-2").val();
+
+		$scope.baixa.$save()
+				.then(function(){
+          console.log('baixa salva...');
+					$scope.message = "Baixa adicionado com sucesso.";
+					//limpa o form
+					$scope.baixa = new Baixa();
+					$('#tabela-body').html('');
+				})
+				.catch(function(erro){
+					console.log($scope.baixa);
+					console.log("Não foi possível salvar relatório de baixa.");
+					$scope.erro = "Falha para gravar baixa";
+					console.log(erro);
+				});
+	};
 
   var opt;
 	$http.get('/inicio/lotacoes').success(function(lotacao){

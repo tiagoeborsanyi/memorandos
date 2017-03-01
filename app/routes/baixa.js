@@ -10,7 +10,7 @@ module.exports = function (app) {
 
   var controller = app.controllers.baixa;
 
-  app.route('/baixa/equipamentos/')
+  app.route('/baixa/equipamento/')
     .get(controller.listaBaixas)
     .post(controller.salvaBaixa);
 
