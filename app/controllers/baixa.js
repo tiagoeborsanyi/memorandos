@@ -18,24 +18,34 @@ module.exports = function (app) {
 
   };
 
+  function sequence(callback){
+    return Baixa.find().sort({data: -1}).limit(1).exec().then(callback);
+  };
+
+
+  var n = sequence(function(s){
+    //console.log(s);
+  });
+
   controller.salvaBaixa = function (req, res) {
 
     //res.json(req.body)
-
+      var dados;
   		var _id = req.body._id;
 
-
-  		var dados = {
-  			"lotacaosaida" : req.body.lotacaosaida,
-  			"lotacaodestino" : req.body.lotacaodestino,
-  			"numerobaixa" : 1, //este numero baixa é automatico, tem que fazer uma consulta no banco e retorno o ultimo numero da collection
-  			"tabela" : req.body.tabela,
-        "texto": req.body.texto,
-        "nomeresponsavel": req.body.nomeresponsavel,
-        "descricaoresponsavel": req.body.descricaoresponsavel,
-  			"usuario" : req.user._id
-  		};
-
+      //estou usando esta função para fazer autoincremente do banco de dados, ele busca o ultimo numero no banco e depois faz o cremento
+      sequence(function(s){
+        console.log(s[0].numerobaixa);
+        var dados = {
+    			"lotacaosaida" : req.body.lotacaosaida,
+    			"lotacaodestino" : req.body.lotacaodestino,
+    			"numerobaixa" : s[0].numerobaixa+1, //este numero baixa é automatico, tem que fazer uma consulta no banco e retorno o ultimo numero da collection
+    			"tabela" : req.body.tabela,
+          "texto": req.body.texto,
+          "nomeresponsavel": req.body.nomeresponsavel,
+          "descricaoresponsavel": req.body.descricaoresponsavel,
+    			"usuario" : req.user._id
+    		};
 
   		//console.log("reqBody "+req.body.tabela[0].tombo);
 
@@ -109,7 +119,7 @@ module.exports = function (app) {
   						res.status(500).json(erro);
   					});
   		}
-
+    });
   };
 
   return controller;

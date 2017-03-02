@@ -28,6 +28,7 @@
     "mongoosastic": "^4.0.2",
     "mongoose": "^4.4.14",
     "mongoose-auto-increment": "^5.0.1",
+    "mongoose-sequence": "^3.1.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
   }

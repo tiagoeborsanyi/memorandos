@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var mongoosastic = require('mongoosastic');
+var sequence = require('mongoose-sequence');
 
 module.exports = function () {
 
@@ -14,7 +15,7 @@ module.exports = function () {
 			required: true
 		},
 		numerobaixa: {
-			type: String,
+			type: Number,
 			required: true
 		},
 		texto: {
@@ -45,6 +46,8 @@ module.exports = function () {
     'localhost:9200'
   ]
 });
+
+  //schema.plugin(sequence, {inc_field: 'numerobaixa'});
 
 	return mongoose.model('Baixa', schema);
 
