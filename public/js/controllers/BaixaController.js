@@ -27,6 +27,35 @@ angular.module('memorandos').controller('BaixaController', function($http, $scop
   selecionaSituacao();
   selecionaEquipamento();
 
+  //retorna todos os usuarios do banco de dados
+	function buscaBaixas(){
+		Baixa.query(
+			function(baixas){
+				$scope.baixas = baixas;
+			},
+			function(erro){
+				console.log('Não foi possível obter a lista de baixa de euiqpamentos.');
+				console.log(erro);
+			});
+	};
+
+  buscaBaixas();
+
+  $scope.removeBaixa = function(usuario){
+
+		var confirmar = confirm("Tem certeza que deseja excluir este relatório?");
+
+		if(confirmar == true){
+			Baixa.delete({id: baixa._id},
+				buscaBaixas,
+				function(erro){
+					console.log("Não foi possível remover o relatório.");
+					console.log(erro);
+				});
+		}
+		console.log(usuario);
+	};
+
   $scope.adicionaItemBaixa = function(a) {
     if($scope.baixa.tabela === undefined || $scope.baixa.tabela === null){
       $scope.baixa.tabela = [];

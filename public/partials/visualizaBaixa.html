@@ -1,5 +1,98 @@
 <section class="wrapper">
+
+  <!-- Titulo da pagina -->
   <div class="row">
-    <h1>VISUALIZA BAIXAS CADASTRADAS</h1>
+    <div class="col-lg-12">
+      <h3 class="page-header"><i class="fa"></i> Baixa de Equipamentos</h3>
+    </div>
   </div>
+
+  <!-- conteudo da pagina -->
+  <div tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="0">
+  <div ng-repeat="baixa in baixas" class="row">
+    <div class="col-md-12">
+      <div class="info-box blue-bg">
+
+        <div class="row">
+          <div class="col-md-11">
+            <label for="">Data: </label>
+            {{baixa.data | date: 'dd/MM/yyyy'}}
+          </div>
+          <div class="col-md-1">
+            <a href="#/caminho-de-baixa-alteracao/{{baixa._id}}"><span class="icon_pencil" style="margin-right: 8px;color: #fff;"></span></a>
+            <a href="" ng-click="removeBaixa(baixa)"><span class="icon_close_alt" style="color: #fff;"></span></a>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="">Lotação de Saída: </label>
+            {{baixa.lotacaosaida}}
+          </div>
+          <div class="col-md-6">
+            <label for="">Lotação Destino: </label>
+            {{baixa.lotacaodestino}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label for="">Nº Baixa: </label>
+              <a class="visualiza-memorando-link" ng-href="#" style="color: #fff;">{{baixa.numerobaixa}}/{{baixa.data | date: 'yyyy'}}</a>
+          </div>
+        </div>
+
+        <br><br>
+
+        <div class="row">
+          <div class="col-md-12" style="text-align: center">
+            Relação equipamentos baixados
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th class="cor-head-tabela">Tombo</th>
+                  <th class="cor-head-tabela">Descrição</th>
+                  <th class="cor-head-tabela">Situação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="tabela in baixa.tabela">
+                  <td>{{tabela.tombo}}</td>
+                  <td>{{tabela.descricao}}</td>
+                  <td ng-if="tabela.situacao[$index].situacao[0].memorando">
+                    {{tabela.situacao[$index].situacao[0].memorando}}
+                  </td>
+                  <td ng-if="tabela.situacao.length < 35">{{tabela.situacao}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12">
+            {{baixa.nomeresponsavel}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            {{baixa.descricaoresponsavel}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 </section>
