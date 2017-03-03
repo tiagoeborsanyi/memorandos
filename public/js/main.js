@@ -84,6 +84,11 @@ angular.module('memorandos', ['ngRoute', 'ngResource', 'tagged.directives.infini
 		controller: 'BaixaController'
 	});
 
+	$routeProvider.when('/relatorios/baixa/equipamento/', {
+		templateUrl: '/partials/visualizaBaixa.html',
+		controller: 'BaixaController'
+	});
+
 
 
 	/*
