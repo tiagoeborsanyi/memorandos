@@ -7,17 +7,47 @@ module.exports = function (app) {
   var controller = {};
 
   controller.listaBaixas = function (req, res) {
-    res.json({data: 'dados de baixa'});
+    //Lista todas as baixas usando consultas via mongoose
+		Baixa.find().exec()
+			.then(
+				function(baixas){
+					res.json(baixas);
+				},
+				function(erro){
+					console.error(erro);
+					//error 500 => intyernal server error
+					res.status(500).json(erro);
+				}
+			);
   };
 
   controller.obtemBaixa = function (req, res) {
-
+    var _id = req.params.id;
+		Baixa.findById(_id).exec()
+			.then(
+				function(baixa){
+					if(!baixa) throw new error('baixa não encontrada.');
+					res.json(baixa);
+				},
+				function(erro){
+					console.log(erro);
+					res.status(404).json(erro);
+				});
   };
 
   controller.removeBaixa = function (req, res) {
-
+    var id = req.params.id;
+		Baixa.remove({_id : id}).exec()
+			.then(
+				function(){
+					res.status(204).end();
+				},
+				function(erro){
+					return console.error(erro);
+				});
   };
 
+  //função para pegar o último relatório de baixa cadastrado e consultar o numero de baixa.
   function sequence(callback){
     return Baixa.find().sort({data: -1}).limit(1).exec().then(callback);
   };

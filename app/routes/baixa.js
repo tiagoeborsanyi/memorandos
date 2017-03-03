@@ -14,7 +14,7 @@ module.exports = function (app) {
     .get(controller.listaBaixas)
     .post(controller.salvaBaixa);
 
-  app.route('baixa/equipamento/:id')
+  app.route('/baixa/equipamento/:id')
     .get(controller.obtemBaixa)
     .delete(controller.removeBaixa);
 
