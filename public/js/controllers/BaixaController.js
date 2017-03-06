@@ -41,7 +41,7 @@ angular.module('memorandos').controller('BaixaController', function($http, $scop
 
   buscaBaixas();
 
-  $scope.removeBaixa = function(usuario){
+  $scope.removeBaixa = function(baixa){
 
 		var confirmar = confirm("Tem certeza que deseja excluir este relatório?");
 
@@ -70,10 +70,10 @@ angular.module('memorandos').controller('BaixaController', function($http, $scop
   };
 
   //Função para quando clicar no botão de editar ir para a pagina de edição do memorando
-	if($routeParams.id){
-		Baixa.get({id: $routeParams.id},
-		function(memorando){
-			$scope.memorando = memorando;
+	if($routeParams.baixaId){
+		Baixa.get({id: $routeParams.baixaId},
+		function(baixa){
+			$scope.baixa = baixa;
 		},
 		function(erro){
 			console.log(erro);

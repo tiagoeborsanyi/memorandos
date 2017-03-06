@@ -89,6 +89,11 @@ angular.module('memorandos', ['ngRoute', 'ngResource', 'tagged.directives.infini
 		controller: 'BaixaController'
 	});
 
+	$routeProvider.when('/edita/baixa/:baixaId', {
+		templateUrl: '/partials/baixaEquipamento.html',
+		controller: 'BaixaController'
+	});
+
 
 
 	/*
