@@ -42,15 +42,12 @@
 						<tr>
 						<th class="centralizado">Nr. Tombo</th>
 						<th class="centralizado">Descrição</th>
-						<th class="centralizado">Lotação Destino</th>
-            <th class="centralizado">Situação</th>
 						</tr>
 					</thead>
 					<tbody id="tabela-body">
 					<tr ng-repeat="tabela in baixa.tabela" class="lista-tabela-imprime">
 						<td>{{tabela.tombo}}</td>
 						<td>{{tabela.descricao}}</td>
-            <td>{{tabela.situacao[$index].situacao[0].impressao}}</td>
 					</tr>
 					</tbody>
 				</table>
