@@ -91,7 +91,7 @@ module.exports = function(app){
 
 
 	controller.salvaEquipamento = function(req, res){
-
+		console.log(req.body);
 		var  _id = req.body._id;
 
 		var dados = {

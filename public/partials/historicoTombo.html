@@ -28,6 +28,7 @@
         <th>Lot. Destino</th>
         <th>Assunto</th>
         <th>Situação</th>
+        <th>Observação</th>
         <th>Data</th>
       </tr>
       <tr ng-repeat="hist in historico">
@@ -35,6 +36,7 @@
         <td>{{hist.lotacaodestino}}</td>
         <td>{{hist.assunto}}</td>
         <td>{{hist.situacao[0]}}</td>
+        <td>{{hist.observacao}}</td>
         <td>{{hist.data | date: 'dd/MM/yyyy'}}</td>
       </tr>
     </table>
