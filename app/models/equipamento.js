@@ -27,6 +27,9 @@ module.exports = function(){
 		local: {
 			type: String
 		},
+		observacao: {
+			type: String
+		},
 		usuario: {
 			type: mongoose.Schema.ObjectId,
 			ref: 'Usuario'

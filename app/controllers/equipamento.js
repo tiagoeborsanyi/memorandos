@@ -98,6 +98,7 @@ module.exports = function(app){
 			"tombo" : req.body.tombo,
 			"descricao" : req.body.descricao,
 			"situacao" : [req.body.situacao[0].situacao[0].memorando],
+			"observacao": req.body.observacao,
 			"usuario" : req.user._id,
 			"data": Date()
 		};
@@ -112,36 +113,6 @@ module.exports = function(app){
 					console.log(erro);
 					res.status(500).json(erro);
 				});
-
-		//console.log("equipamento user: "+req.user.login);
-
-		//criar um if() para verificar se é um update ou não
-		/*if(_id){
-
-			Equipamento.findByIdAndUpdate(_id, dados).exec()
-				.then(
-					function(equipamento){
-						//console.log("EQUIPAMENTO "+equipamento);
-						res.json(equipamento);
-					},
-					function(erro){
-						console.error(erro);
-						res.status(500).json(erro);
-					});
-
-		}else{
-
-			Equipamento.create(dados)
-				.then(
-					function(equipamento){
-						res.status(201).json(equipamento);
-					},
-					function(erro){
-						console.log(erro);
-						res.status(500).json(erro);
-					});
-		}*/
-
 	};
 
 
