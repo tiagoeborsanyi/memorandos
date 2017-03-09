@@ -33,9 +33,6 @@ if($routeParams.equipamentoId){
 }
 
 $scope.salva = function(){
-
-	//console.log("Equipamento "+ $scope.equipamento.tombo); //Função de função e alterar esta funcionando
-
 	$scope.equipamento.$save()
 		.then(function(){
 			console.log($scope.equipamento);
@@ -60,6 +57,17 @@ $scope.salva = function(){
   	});
   };
 
+	function selecionaEquipamento() {
+		$http.get('/configuracao/memorandoequipamento').success(function(equipamentolista){
+			$scope.equipamentosLista = equipamentolista;
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o equipamento');
+		});
+	};
+
+	selecionaEquipamento();
 	selecionaSituacao();
 
 });

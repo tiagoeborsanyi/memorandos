@@ -35,7 +35,14 @@
                     Descrição:
                   </label>
                   <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Positivo i5, AMD i5, Itautec i5, LG 19 Polegadas" required ng-model="equipamento.descricao">
+                    <!--input type="text" class="form-control" placeholder="Positivo i5, AMD i5, Itautec i5, LG 19 Polegadas" required ng-model="equipamento.descricao"-->
+                    <select
+                      class="form-control"
+                      required
+                      ng-model="equipamento.descricao"
+                      ng-options="equipamento.equipamento as equipamento.equipamento for equipamento in equipamentosLista">
+                        <option value="">--Escolha um Equipamento--</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -57,6 +64,21 @@
                         ng-options="tabela.situacao[0].memorando for tabela in situacoes">
                                 <option value="">--Escolha uma Situação--</option>
                     </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="col-md-2">
+                    Texto:
+                  </label>
+                  <div class="col-md-6">
+                    <textarea class="form-control" placeholder="Texto livre para incluir observações de equipamentos" ng-model="equipamento.observacao"></textarea>
                   </div>
                 </div>
               </div>
