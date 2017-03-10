@@ -59,7 +59,7 @@ module.exports = function (app) {
 
   controller.salvaBaixa = function (req, res) {
 
-    //res.json(req.body)
+    //console.log(req.body)
       var dados;
   		var _id = req.body._id;
 
@@ -71,7 +71,8 @@ module.exports = function (app) {
     			"lotacaodestino" : req.body.lotacaodestino,
     			"numerobaixa" : s[0].numerobaixa+1, //este numero baixa é automatico, tem que fazer uma consulta no banco e retorno o ultimo numero da collection
     			"tabela" : req.body.tabela,
-          "texto": req.body.texto,
+          "htmltexto": req.body.htmltexto,
+          "objetotexto": req.body.objetotexto,
           "nomeresponsavel": req.body.nomeresponsavel,
           "descricaoresponsavel": req.body.descricaoresponsavel,
     			"usuario" : req.user._id

@@ -18,7 +18,10 @@ module.exports = function () {
 			type: Number,
 			required: true
 		},
-		texto: {
+		htmltexto: {
+			type: String
+		},
+    objetotexto: {
 			type: String
 		},
 		tabela: [],

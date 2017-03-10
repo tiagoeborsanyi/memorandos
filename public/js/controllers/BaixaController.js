@@ -53,7 +53,7 @@ angular.module('memorandos').controller('BaixaController', function($http, $scop
 					console.log(erro);
 				});
 		}
-		console.log(usuario);
+		//console.log(usuario);
 	};
 
   $scope.adicionaItemBaixa = function(a) {
@@ -74,6 +74,7 @@ angular.module('memorandos').controller('BaixaController', function($http, $scop
 		Baixa.get({id: $routeParams.baixaId},
 		function(baixa){
 			$scope.baixa = baixa;
+      $("#texto").append($.parseHTML(baixa.htmltexto));
 		},
 		function(erro){
 			console.log(erro);
@@ -98,6 +99,8 @@ angular.module('memorandos').controller('BaixaController', function($http, $scop
 
 		$scope.baixa.lotacaosaida = $("#provider-json-1").val();
 		$scope.baixa.lotacaodestino = $("#provider-json-2").val();
+    $scope.baixa.htmltexto = JSON.stringify(document.getElementById('x').value);
+    $scope.baixa.objetotexto = JSON.stringify(document.querySelector("trix-editor").editor);
 
 		$scope.baixa.$save()
 				.then(function(){
