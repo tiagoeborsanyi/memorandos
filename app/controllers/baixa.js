@@ -8,7 +8,7 @@ module.exports = function (app) {
 
   controller.listaBaixas = function (req, res) {
     //Lista todas as baixas usando consultas via mongoose
-		Baixa.find().exec()
+		Baixa.find().sort({data : -1}).exec()
 			.then(
 				function(baixas){
 					res.json(baixas);
