@@ -82,7 +82,7 @@ module.exports = function (app) {
 
   		if(_id){
 
-  			Baixa.findByIdAndUpdate(_id, dados).exec()
+  			Baixa.findByIdAndUpdate(_id, req.body).exec()
   				.then(
   					function(baixa){
   						console.log('Baixa ', baixa);
