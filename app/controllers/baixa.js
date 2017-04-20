@@ -52,11 +52,6 @@ module.exports = function (app) {
     return Baixa.find().sort({data: -1}).limit(1).exec().then(callback);
   };
 
-
-  var n = sequence(function(s){
-    //console.log(s);
-  });
-
   controller.salvaBaixa = function (req, res) {
 
     //console.log(req.body)
