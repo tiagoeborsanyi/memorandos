@@ -17,10 +17,10 @@ module.exports = function(app){
 				{"tabela.local": {$regex: resultFormat}},
 				{"tabela.descricao": {$regex: resultFormat}},
 				{numeromemorando: {$regex: resultFormat}},
-				{lotacaodestino: {$regex: resultFormat}},
-				{lotacaosaida: {$regex: resultFormat}},
-				{assunto: {$regex: resultFormat}},
-				{observacao: {$regex: resultFormat}}
+				{lotacaodestino: {$regex: resultFormat, $options: "si"}},
+				{lotacaosaida: {$regex: resultFormat, $options: "si"}},
+				{assunto: {$regex: resultFormat, $options: "si"}},
+				{observacao: {$regex: resultFormat, $options: "si"}}
 			]}).sort({data : -1}).populate('usuario').exec()
 				.then(
 					function(memorandos){
