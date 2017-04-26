@@ -99,7 +99,28 @@
 
                       </div>
                     </div>
+                    <!-- Segundo campo para escolher o equipamento -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="col-md-2">
+                            Equipamento:
+                          </label>
+                          <div class="col-md-6">
+                            <select
+                                class="form-control"
+                                ng-model="tabela.equipamento.situacao"
+                                ng-options="tabela.equipamento for tabela in equipamentosLista1">
+                								        <option value="">--Escolha um Equipamento--</option>
+                						</select>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div>
                     <br>
+                    <!-- Final do segundo campo para escolher o equipamento -->
                     <div class="row">
                       <div class="col-lg-offset-5 col-md-6">
                         <button class="btn btn-primary" type="submit">Buscar</button>

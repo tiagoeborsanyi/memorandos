@@ -47,13 +47,13 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
   $scope.situacao = function(){
 
   	$http.get('/equipamento/situacao').success(function(situacao){
-      console.log('sem filtro: ',situacao);
 
   		var b = [];
   		for(var i = 0; i < situacao.length; i++){
   			var obj = situacao[i];
-        console.log(situacao[i].situacao[0]);
-  			if($scope.tabela.situacao.memorando.situacao[0].memorando == situacao[i].situacao[0]){
+        //console.log($scope.tabela.equipamento.situacao);
+        console.log('sem filtro: ',situacao[i].descricao);
+  			if(($scope.tabela.situacao.memorando.situacao[0].memorando == situacao[i].situacao[0])  && ($scope.tabela.equipamento.situacao.equipamento == situacao[i].descricao)){
 
   				b.push(situacao[i]);
           //console.log(situacao[i]._id == '137190');
@@ -172,6 +172,17 @@ angular.module('memorandos').controller('EquipamentoControllerInfinite', ['$scop
 
   };
 
+  function selecionaEquipamento() {
+		$http.get('/configuracao/memorandoequipamento').success(function(equipamentolista1){
+			$scope.equipamentosLista1 = equipamentolista1;
+		},
+		function(erro){
+			console.log(erro);
+			console.log('não foi possível obter o equipamento');
+		});
+	};
+
+  selecionaEquipamento();
   selecionaOperacao();
   selecionaSituacao();
   selecionaLotacao();
